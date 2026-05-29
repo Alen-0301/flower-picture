@@ -1,4 +1,4 @@
-// 管理后台 JS
+﻿// 管理后台 JS
 
 let adminPassword = '';
 let flowers = [];
@@ -19,6 +19,7 @@ async function login() {
             document.getElementById('loginOverlay').style.display = 'none';
             document.getElementById('adminContainer').style.display = 'block';
             loadFlowerList();
+            loadShopInfo();
         } else {
             hint.textContent = '密码错误，请重试';
         }
@@ -129,6 +130,7 @@ async function addFlower() {
             imageEl.value = '';
             document.getElementById('newImagePreview').style.display = 'none';
             loadFlowerList();
+            loadShopInfo();
         } else {
             alert('添加失败');
         }
@@ -223,6 +225,7 @@ function editFlower(id) {
             if (resp.ok) {
                 overlay.remove();
                 loadFlowerList();
+            loadShopInfo();
             } else {
                 alert('保存失败');
             }
@@ -248,6 +251,7 @@ async function deleteFlower(id) {
         });
         if (resp.ok) {
             loadFlowerList();
+            loadShopInfo();
         } else {
             alert('删除失败');
         }
@@ -263,7 +267,44 @@ function esc(s) {
 }
 
 
-// ===== QR码生成 =====
+
+// ===== 店铺信息 =====
+async function loadShopInfo() {
+    try {
+        const resp = await fetch('/api/shopinfo');
+        const info = await resp.json();
+        document.getElementById('shopAddress').value = info.address || '';
+        document.getElementById('shopPhone').value = info.phone || '';
+        document.getElementById('shopFooterNote').value = info.footerNote || '';
+    } catch (e) { /* 加载失败 */ }
+}
+
+async function saveShopInfo() {
+    const address = document.getElementById('shopAddress').value.trim();
+    const phone = document.getElementById('shopPhone').value.trim();
+    const footerNote = document.getElementById('shopFooterNote').value.trim();
+    const msg = document.getElementById('shopInfoMsg');
+    try {
+        const resp = await fetch('/api/shopinfo', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Admin-Password': adminPassword
+            },
+            body: JSON.stringify({ address, phone, footerNote })
+        });
+        if (resp.ok) {
+            msg.textContent = '✅ 保存成功';
+            setTimeout(() => msg.textContent = '', 2000);
+        } else {
+            msg.textContent = '❌ 保存失败';
+        }
+    } catch (e) {
+        msg.textContent = '❌ 保存失败';
+    }
+}
+
+
 function generateQR() {
     const url = document.getElementById('qrUrl').value.trim();
     if (!url) { alert('请输入前台网址'); return; }

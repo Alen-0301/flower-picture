@@ -1,4 +1,4 @@
-const express = require('express');
+﻿const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
@@ -121,7 +121,22 @@ app.post('/api/verify', (req, res) => {
     res.status(403).json({ success: false });
 });
 
-// ===== 启动 =====
+
+// 获取店铺信息
+app.get('/api/shopinfo', (req, res) => {
+    const data = loadData();
+    res.json(data.shopInfo || {});
+});
+
+// 更新店铺信息
+app.put('/api/shopinfo', checkPassword, (req, res) => {
+    const data = loadData();
+    data.shopInfo = { ...data.shopInfo, ...req.body };
+    saveData(data);
+    res.json(data.shopInfo);
+});
+
+
 app.listen(PORT, () => {
     console.log(`🌸 花语小筑已启动！`);
     console.log(`   前台展示: http://localhost:${PORT}`);

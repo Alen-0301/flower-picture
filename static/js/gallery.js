@@ -44,4 +44,14 @@ function escapeHtml(text) {
     return div.innerHTML;
 }
 
-document.addEventListener('DOMContentLoaded', loadFlowers);
+document.addEventListener('DOMContentLoaded', () => { loadFlowers(); loadShopInfo(); });
+
+async function loadShopInfo() {
+    try {
+        const resp = await fetch('/api/shopinfo');
+        const info = await resp.json();
+        if (info.address) document.getElementById('footerAddress').textContent = info.address;
+        if (info.phone) document.getElementById('footerPhone').textContent = info.phone;
+        if (info.footerNote) document.getElementById('footerNote').textContent = info.footerNote;
+    } catch (e) { /* 加载失败保持默认值 */ }
+}
