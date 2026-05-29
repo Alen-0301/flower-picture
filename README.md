@@ -1,4 +1,4 @@
-﻿# 🌸 花语小筑 — Render 付费版完整部署教程
+# 🌸 沐野鲜花 — Render 付费版完整部署教程
 
 ## 概览
 
@@ -55,7 +55,7 @@ cd "C:\Users\32163\Documents\flower picture"
 # 初始化并推送
 git init
 git add .
-git commit -m "花语小筑 - 初始版本"
+git commit -m "沐野鲜花 - 初始版本"
 
 # 复制 GitHub 上显示的仓库地址，替换下面这行
 git remote add origin https://github.com/你的用户名/flower-shop.git
@@ -192,7 +192,7 @@ https://flower-shop-abc123.onrender.com
 
 ---
 
-### 🌸 花语小筑 - 使用指南
+### 🌸 沐野鲜花 - 使用指南
 
 **1. 扫码看花**
 

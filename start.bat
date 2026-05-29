@@ -1,9 +1,9 @@
-﻿@echo off
+@echo off
 chcp 65001 >nul
 cd /d "%~dp0"
 echo.
 echo  ================================
-echo    🌸 花语小筑 - 启动中...
+echo    🌸 沐野鲜花 - 启动中...
 echo  ================================
 echo.
 echo    前台展示: http://localhost:8080

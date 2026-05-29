@@ -1,4 +1,4 @@
-﻿const express = require('express');
+const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
@@ -138,7 +138,7 @@ app.put('/api/shopinfo', checkPassword, (req, res) => {
 
 
 app.listen(PORT, () => {
-    console.log(`🌸 花语小筑已启动！`);
+    console.log(`🌸 沐野鲜花已启动！`);
     console.log(`   前台展示: http://localhost:${PORT}`);
     console.log(`   管理后台: http://localhost:${PORT}/admin`);
     console.log(`   管理密码: ${ADMIN_PASSWORD}`);
