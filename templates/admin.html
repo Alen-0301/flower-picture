@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -63,8 +63,7 @@
                     <p class="loading">加载中...</p>
                 </div>
             </section>
-        
-            
+
             <!-- 店铺信息设置 -->
             <section class="admin-section">
                 <h2>🏪 店铺底部信息</h2>
@@ -94,7 +93,7 @@
                 <div class="form-grid">
                     <div class="form-group full-width">
                         <label>前台网址</label>
-                        <input type="text" id="qrUrl" placeholder="如：https://your-site.com 或 http://192.168.1.100:8080" >
+                        <input type="text" id="qrUrl" placeholder="如：https://your-site.com">
                     </div>
                 </div>
                 <button onclick="generateQR()" class="btn btn-primary" style="margin-top:12px">📱 生成二维码</button>
@@ -103,52 +102,11 @@
                     <p style="margin-top:10px;color:#8b7355;font-size:0.85em">右键或长按二维码保存图片，打印贴在店里即可</p>
                 </div>
             </section>
-
-            
-            <!-- 店铺信息设置 -->
-            <section class="admin-section">
-                <h2>🏪 店铺底部信息</h2>
-                <p style="color:#8b7355;margin-bottom:12px">修改前台页面底部的联系方式和提示语</p>
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label>地址/欢迎语</label>
-                        <input type="text" id="shopAddress" placeholder="欢迎到店选购">
-                    </div>
-                    <div class="form-group">
-                        <label>联系电话</label>
-                        <input type="text" id="shopPhone" placeholder="XXX-XXXX-XXXX">
-                    </div>
-                    <div class="form-group full-width">
-                        <label>底部小字</label>
-                        <input type="text" id="shopFooterNote" placeholder="扫二维码，发现更多美好">
-                    </div>
-                </div>
-                <button onclick="saveShopInfo()" class="btn btn-primary" style="margin-top:12px">💾 保存信息</button>
-                <p id="shopInfoMsg" style="margin-top:8px;font-size:0.85em;color:#8b7355"></p>
-            </section>
-
-            <!-- QR码生成 -->
-            <section class="admin-section">
-                <h2>📱 生成二维码</h2>
-                <p style="color:#8b7355;margin-bottom:12px">输入你的前台网址，生成二维码供顾客扫码查看</p>
-                <div class="form-grid">
-                    <div class="form-group full-width">
-                        <label>前台网址</label>
-                        <input type="text" id="qrUrl" placeholder="如：https://your-site.com 或 http://192.168.1.100:8080" >
-                    </div>
-                </div>
-                <button onclick="generateQR()" class="btn btn-primary" style="margin-top:12px">📱 生成二维码</button>
-                <div id="qrResult" style="margin-top:20px;text-align:center;display:none">
-                    <div id="qrcode" style="display:inline-block;padding:16px;background:white;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.08)"></div>
-                    <p style="margin-top:10px;color:#8b7355;font-size:0.85em">右键或长按二维码保存图片，打印贴在店里即可</p>
-                </div>
-            </section>
-</main>
+        </main>
     </div>
 
     <script src="/static/js/admin.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
-
-<script>document.addEventListener('DOMContentLoaded', function() { document.getElementById('qrUrl').value = window.location.origin; });</script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { document.getElementById('qrUrl').value = window.location.origin; });</script>
 </body>
 </html>

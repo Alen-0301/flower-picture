@@ -1,30 +1,30 @@
-﻿{
+{
+    "shopInfo":  {
+                     "phone":  "XXX-XXXX-XXXX",
+                     "footerNote":  "扫二维码，发现更多美好",
+                     "address":  "欢迎到店选购"
+                 },
     "flowers":  [
                     {
-                        "id":  1,
-                        "name":  "粉玫瑰",
+                        "price":  "¥128/束",
                         "description":  "温柔如初见的粉色玫瑰，每一朵都承载着浪漫的心意。适合送给心爱的人，表达最真挚的情感。",
-                        "image":  "uploads/rose-pink.jpg",
-                        "price":  "¥128/束"
+                        "name":  "粉玫瑰",
+                        "id":  1,
+                        "image":  "uploads/rose-pink.jpg"
                     },
                     {
-                        "id":  2,
-                        "name":  "向日葵",
+                        "price":  "¥98/束",
                         "description":  "向着阳光绽放的向日葵，象征着积极与希望。无论是祝贺还是鼓励，都是最好的选择。",
-                        "image":  "uploads/sunflower.jpg",
-                        "price":  "¥98/束"
+                        "name":  "向日葵",
+                        "id":  2,
+                        "image":  "uploads/sunflower.jpg"
                     },
                     {
-                        "id":  3,
-                        "name":  "白百合",
+                        "price":  "¥168/束",
                         "description":  "纯洁高雅的白百合，散发着淡淡的清香。适合各种正式场合，传递尊重与祝福。",
-                        "image":  "uploads/lily-white.jpg",
-                        "price":  "¥168/束"
+                        "name":  "白百合",
+                        "id":  3,
+                        "image":  "uploads/lily-white.jpg"
                     }
-                ],
-    "shopInfo":  {
-                     "address":  "欢迎到店选购",
-                     "phone":  "XXX-XXXX-XXXX",
-                     "footerNote":  "扫二维码，发现更多美好"
-                 }
+                ]
 }
