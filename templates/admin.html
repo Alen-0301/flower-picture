@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理后台 - 花语小筑</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="admin-body">
+    <!-- 登录遮罩 -->
+    <div class="login-overlay" id="loginOverlay">
+        <div class="login-card">
+            <h2>🔐 管理后台</h2>
+            <input type="password" id="passwordInput" placeholder="请输入管理密码" class="login-input">
+            <button onclick="login()" class="btn btn-primary">进入后台</button>
+            <p class="login-hint" id="loginHint"></p>
+        </div>
+    </div>
+
+    <!-- 管理界面 -->
+    <div class="admin-container" id="adminContainer" style="display:none">
+        <header class="admin-header">
+            <h1>🌸 花艺管理后台</h1>
+            <div class="admin-actions">
+                <a href="/" target="_blank" class="btn btn-outline">预览前台</a>
+                <button onclick="logout()" class="btn btn-outline">退出</button>
+            </div>
+        </header>
+
+        <main class="admin-main">
+            <!-- 添加新花 -->
+            <section class="admin-section">
+                <h2>➕ 添加新花束</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>花名</label>
+                        <input type="text" id="newName" placeholder="如：粉玫瑰">
+                    </div>
+                    <div class="form-group">
+                        <label>价格</label>
+                        <input type="text" id="newPrice" placeholder="如：¥128/束">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>介绍语</label>
+                        <textarea id="newDesc" rows="3" placeholder="写一段温馨的介绍语..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>上传图片</label>
+                        <input type="file" id="newImage" accept="image/*">
+                    </div>
+                    <div class="form-group" id="newImagePreview" style="display:none">
+                        <label>预览</label>
+                        <img id="newImgPreview" src="" alt="预览">
+                    </div>
+                </div>
+                <button onclick="addFlower()" class="btn btn-primary">✨ 添加花束</button>
+            </section>
+
+            <!-- 已有花束列表 -->
+            <section class="admin-section">
+                <h2>📋 当前花束列表</h2>
+                <div class="flower-list" id="flowerList">
+                    <p class="loading">加载中...</p>
+                </div>
+            </section>
+        
+            <!-- QR码生成 -->
+            <section class="admin-section">
+                <h2>📱 生成二维码</h2>
+                <p style="color:#8b7355;margin-bottom:12px">输入你的前台网址，生成二维码供顾客扫码查看</p>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label>前台网址</label>
+                        <input type="text" id="qrUrl" placeholder="如：https://your-site.com 或 http://192.168.1.100:8080" value="http://localhost:8080">
+                    </div>
+                </div>
+                <button onclick="generateQR()" class="btn btn-primary" style="margin-top:12px">📱 生成二维码</button>
+                <div id="qrResult" style="margin-top:20px;text-align:center;display:none">
+                    <div id="qrcode" style="display:inline-block;padding:16px;background:white;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.08)"></div>
+                    <p style="margin-top:10px;color:#8b7355;font-size:0.85em">右键或长按二维码保存图片，打印贴在店里即可</p>
+                </div>
+            </section>
+
+            <!-- QR码生成 -->
+            <section class="admin-section">
+                <h2>📱 生成二维码</h2>
+                <p style="color:#8b7355;margin-bottom:12px">输入你的前台网址，生成二维码供顾客扫码查看</p>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label>前台网址</label>
+                        <input type="text" id="qrUrl" placeholder="如：https://your-site.com 或 http://192.168.1.100:8080" value="http://localhost:8080">
+                    </div>
+                </div>
+                <button onclick="generateQR()" class="btn btn-primary" style="margin-top:12px">📱 生成二维码</button>
+                <div id="qrResult" style="margin-top:20px;text-align:center;display:none">
+                    <div id="qrcode" style="display:inline-block;padding:16px;background:white;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.08)"></div>
+                    <p style="margin-top:10px;color:#8b7355;font-size:0.85em">右键或长按二维码保存图片，打印贴在店里即可</p>
+                </div>
+            </section>
+</main>
+    </div>
+
+    <script src="/static/js/admin.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</body>
+</html>

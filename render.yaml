@@ -1,0 +1,11 @@
+﻿services:
+  - type: web
+    name: flower-shop
+    env: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: ADMIN_PASSWORD
+        value: flower2024
+      - key: NODE_ENV
+        value: production
