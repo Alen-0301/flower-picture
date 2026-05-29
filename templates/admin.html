@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -71,7 +71,7 @@
                 <div class="form-grid">
                     <div class="form-group full-width">
                         <label>前台网址</label>
-                        <input type="text" id="qrUrl" placeholder="如：https://your-site.com 或 http://192.168.1.100:8080" value="http://localhost:8080">
+                        <input type="text" id="qrUrl" placeholder="如：https://your-site.com 或 http://192.168.1.100:8080" >
                     </div>
                 </div>
                 <button onclick="generateQR()" class="btn btn-primary" style="margin-top:12px">📱 生成二维码</button>
@@ -88,7 +88,7 @@
                 <div class="form-grid">
                     <div class="form-group full-width">
                         <label>前台网址</label>
-                        <input type="text" id="qrUrl" placeholder="如：https://your-site.com 或 http://192.168.1.100:8080" value="http://localhost:8080">
+                        <input type="text" id="qrUrl" placeholder="如：https://your-site.com 或 http://192.168.1.100:8080" >
                     </div>
                 </div>
                 <button onclick="generateQR()" class="btn btn-primary" style="margin-top:12px">📱 生成二维码</button>
@@ -102,5 +102,7 @@
 
     <script src="/static/js/admin.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+<script>document.addEventListener('DOMContentLoaded', function() { document.getElementById('qrUrl').value = window.location.origin; });</script>
 </body>
 </html>
